@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>ボログ</title>
+  </head>
+
+  <body>
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+    <div class = 'container'>
+{% for item in object_list %}
+ <div class="card">
+    <h5 class="card-header">{{item.category}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <h6 class="card-title">{{item.postdate}}</h6>
+    <a href="{% url 'detail' item.pk %}" class="btn btn-primary">詳細へ</a>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock content %}
+
+  </body>
+</html>
